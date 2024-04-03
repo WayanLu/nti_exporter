@@ -6,7 +6,7 @@ def set_logger() -> None:
     logger = logging.getLogger()
     logger.setLevel(logging.INFO)
     # Create file handler which logs messages to a file
-    file_handler = logging.FileHandler('../nti_exporter.log')
+    file_handler = logging.FileHandler('nti_exporter.log', mode='a')
     file_handler.setLevel(logging.INFO)
     # Create console handler which logs messages to the console
     console_handler = logging.StreamHandler()
