@@ -7,6 +7,7 @@ from readNTIsensors import get_nti_sensors
 # Add more variables if you want to exporter more metrics
 temperature_gauge = Gauge('nti_sensor_temperature', 'Temperature of NTI sensors', ['sensor_id'])
 
+
 def read_config(filepath):
     '''
     Process yaml file to get config
@@ -23,6 +24,8 @@ def read_config(filepath):
     )
 
     return address, interval, port
+
+
 def process_request(t, addr):
     '''
     Get data from NTI sensors and update exporter
@@ -35,17 +38,15 @@ def process_request(t, addr):
 
     time.sleep(t)
 
-if __name__ == '__main__':
 
+if __name__ == '__main__':
+    # Read Config
     filepath = "config.json"
     address, interval, port = read_config(filepath)
-    
     # Start up the server to expose the metrics.
     start_http_server(port)
     print(f'{datetime.now()} Start nti_exporter listening on port {port}...')
     # Generate some requests.
     while True:
         print(f'{datetime.now()} Retrieving data from NTI sensors...')
-        process_request(interval)
-
-
+        process_request(interval, address)
