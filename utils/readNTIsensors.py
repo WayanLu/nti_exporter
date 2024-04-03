@@ -27,7 +27,7 @@ def get_nti_sensors(nti_address: str) -> Dict[int, float]:
 
 if __name__ == "__main__":
     print("Test")
-    with open("config.json") as file:
+    with open("../config.json") as file:
         config_json = file.read()
 
     config = json.loads(config_json)

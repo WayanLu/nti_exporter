@@ -1,10 +1,9 @@
 import time
 import json
 import logging
-from datetime import datetime
 from prometheus_client import start_http_server, Gauge
-from readNTIsensors import get_nti_sensors
-from log import set_logger
+from utils.readNTIsensors import get_nti_sensors
+from utils.log import set_logger
 
 # Add more variables if you want to export more metrics
 temperature_gauge = Gauge('nti_sensor_temperature',
