@@ -1,5 +1,5 @@
 {
-    "address": ""
-    "port": 8103
-    "interval": 5
+    "address": "",
+    "port": "8103",
+    "interval": "5"
 }    
