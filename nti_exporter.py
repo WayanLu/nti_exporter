@@ -54,4 +54,3 @@ if __name__ == '__main__':
     while True:
         logging.info('Retrieving data from NTI sensors...')
         process_request(interval, address)
-
