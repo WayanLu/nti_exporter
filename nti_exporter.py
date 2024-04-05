@@ -14,6 +14,7 @@ def read_config(filepath):
     '''
     Process yaml file to get config
     '''
+    logging.info('config.json filepath: %s', filepath)
     with open(filepath, 'r') as file:
         config_json = file.read()
 
