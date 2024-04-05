@@ -1,4 +1,5 @@
 import time
+import os
 import json
 import logging
 import sys
@@ -52,8 +53,10 @@ if __name__ == '__main__':
 
     # Access the argument value
     config_path = sys.argv[1]
+    # Parse config_path to get working directory
+    working_directory = os.path.dirname(config_path)
     # Set logger
-    set_logger()
+    set_logger(working_directory)
     # Read Config
     address, interval, port = read_config(config_path)
     # Start up the server to expose the metrics.
