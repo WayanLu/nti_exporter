@@ -1,9 +1,11 @@
 import time
 import json
 import logging
+import sys
 from prometheus_client import start_http_server, Gauge
 from utils.readNTIsensors import get_nti_sensors
 from utils.log import set_logger
+
 
 # Add more variables if you want to export more metrics
 temperature_gauge = Gauge('nti_sensor_temperature',
@@ -43,11 +45,17 @@ def process_request(t, addr):
 
 
 if __name__ == '__main__':
+    # Check if the correct number of arguments is provided
+    if len(sys.argv) != 2:
+        print("Usage: python nti_exporter.py <config_path>")
+        sys.exit(1)
+
+    # Access the argument value
+    config_path = sys.argv[1]
     # Set logger
     set_logger()
     # Read Config
-    filepath = "config.json"
-    address, interval, port = read_config(filepath)
+    address, interval, port = read_config(config_path)
     # Start up the server to expose the metrics.
     start_http_server(port)
     logging.info('NTI exporter started listening on port %s...', port)
