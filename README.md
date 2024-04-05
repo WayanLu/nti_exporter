@@ -9,7 +9,7 @@ There is a config.json that users need to configure. The ` "address" ` parameter
 the port for this script runs on 8103, if you want to change that port to something else, feel free. Lastly, you can modify the interval for updates with the `"interval"` parameter.
 
 ## Setup
-- Clone the repository: `git clone git@github.com:WayanLu/nti_exporter.git`
+- Clone the repository: `git clone https://github.com/WayanLu/nti_exporter.git`
 
 - Inside the folder, create a virtual environment with Python3.10: `python3.10 -m venv your_venv_name`
 
