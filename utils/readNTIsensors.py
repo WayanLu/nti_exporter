@@ -1,6 +1,7 @@
 import re
 import json
 import requests
+import logging
 from bs4 import BeautifulSoup
 from typing import Dict
 
@@ -21,6 +22,7 @@ def get_nti_sensors(nti_address: str) -> Dict[int, float]:
         sensor = sensor_element.get_text()
         temperature = re.sub(r'[^\d.]+', '', sensor)
         if temperature != '':
+            logging.info(f'Sensor {index}: No Value')
             nti_sensors[index] = float(temperature)
 
     return nti_sensors
