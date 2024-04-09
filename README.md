@@ -1,4 +1,4 @@
-A Prometheus exporter for NTI ENVIROMUX® Environment Monitoring System (EMS) with 1-Wire Sensor Interface. 
+A Prometheus exporter for NTI ENVIROMUX® Environment Monitoring System (EMS) with 1-Wire Sensor Interface.  https://www.networktechinc.com/environment-monitor-1wire.html
 Made using Python3.10
 
 The script looks for the ip address of the EMS and uses a webscraper to convert data into prometheus metrics. At the moment it only scrapes for internal sensors. 
