@@ -18,7 +18,9 @@ def get_nti_sensors(nti_address: str) -> Dict[int, float]:
     html_soup = BeautifulSoup(response.text, 'html.parser')
     nti_sensors = {}
 
-    for index, sensor_element in enumerate(html_soup.find_all(id=re.compile(r'es\d+'))):
+    for index, sensor_element in enumerate(
+            html_soup.find_all(id=re.compile(r'es\d+'))):
+
         sensor = sensor_element.get_text()
         temperature = re.sub(r'[^\d.]+', '', sensor)
         if temperature != '':
