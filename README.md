@@ -20,3 +20,6 @@ the port for this script runs on 8103, if you want to change that port to someth
 - Finally, you can run `python nti_exporter.py`
 
 ## Creating a Linux systemd service file to automate the script
+For Linux systems, the systemd directory is located in `/etc/system/systemd/`.
+Here you can create a systemd service file and add the following content inside:
+``
