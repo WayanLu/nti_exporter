@@ -22,4 +22,16 @@ the port for this script runs on 8103, if you want to change that port to someth
 ## Creating a Linux systemd service file to automate the script
 For Linux systems, the systemd directory is located in `/etc/system/systemd/`.
 Here you can create a systemd service file and add the following content inside:
-``
+`
+[Unit]
+Description = NTI sensor exporter service running on port 8103
+After=network-online.target
+
+[Service]
+Restart=on-failure
+RestartSec=3
+ExecStart=/path/to/venv/bin/python /path/to/nti_exporter/nti_exporter.py /path/to/nti_exporter/config.json
+
+[Install]
+WantedBy=multi-user.target
+`
